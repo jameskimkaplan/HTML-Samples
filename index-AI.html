@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" type="text/css" href="style.css">
+<script src="script.js"></script>              
+</head>
+<body>
+	<div class='scene'>
+	
+		<div class='grass'></div>
+		
+		<div class='road'>
+		
+			<div class='ai'>
+				<div class='sensor_1'>1</div>
+				<div class='sensor_2'>2</div>
+				<div class='sensor_3'>3</div>
+			</div>
+			
+			<div class='wall' id='wall'></div>
+		
+		</div>
+		
+		<div class='grass'></div>
+	
+	</div>
+
+<div class='debugArea'>
+    
+    <textarea id='debugTextarea' class='debugTextareaClass'>N/A</textarea>  
+    
+	<input type='text' id='stepsDone' value='0' style='width:50px' />
+	<!-- input type='text' value='1' style='width:50px' /> 
+	<br>
+	<input type='text' value='your name' style='width:100px' /> <br>
+	<input type='radio' value='like' /> <br>
+	<input type='checkbox' /> <br -->
+    <input type='button' value='Start' onClick="runSim('1')" />
+    
+    <input type='button' value='Stop' onClick="runSim('0')" />
+    
+</div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                        <link rel="stylesheet" type="text/css" href="style.css">
+        </head>
+<body>
+        <h2>JavaScript Statements</h2>
+        
+        <p>Statements are separated by semicolons.</p>
+        
+        <p>In the script below, the first statement declares the variables x, y, and z.</p>
+        
+        <p>The second statement assigns the literal value 5 to x.</p>
+        
+        <p>The third statement assigns the literal value 6 to y.</p>
+        
+        <p>Then x an y are added and assigned to z.</p>
+        
+        <p>Finally the value of z is displayed in the paragraph below:</p>
+        
+        <p id="demo"></p>
+        <p id="multi"></p>
+        <p id="division"></p>
+        <p id="subtraction"></p>
+        
+        <script>
+        var x, y, z, a, b, c;
+        x = 5;  //assign 5 to the variable x.
+        y = 6;
+        z = x + y; //sum
+        a = x * y;  // multiplication
+        b = x/y;       //division
+        c = x - y;       //subtraction
+
+        document.getElementById("demo").innerHTML = "The sum of x and y is " + z;
+        document.getElementById("multi").innerHTML = "The mulitplcation of x and y is" + a;
+        document.getElementById("division").innerHTML = "The division of x and y is " + b;
+        document.getElementById("subtraction").innerHTML = "The subtraction of x and y is " + c;
+        </script>
+        
+</body>
+</html>

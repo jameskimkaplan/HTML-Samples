@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="./object.js"></script>
+    </head>
+<body>
+
+<h2>JavaScript Objects</h2>
+<h1> I want to present car name as Header!!!</h1>
+<p id="demo"></p>
+<p id="pet"></p>
+<p id="person"></p>
+<script>
+// Create an object:
+
+// Display some data from the object:
+document.getElementById("demo").innerHTML = "<h3> Type: " 
++ car.type + "<br> Model: " + car.model 
++ "<br> Color: " + car.color +"</h3>"+
+"<br>" + "<img src=" + car.image +" width=500>";
+document.getElementById("pet").innerHTML = "<h3> Type: " 
++ pet.type + "<br> Breed: " + pet.breed 
++ "<br> Color: " + pet.color +"</h3>"+
+"<br>" + "<a href=" + pet.link + " target=_blank> <img src=" + pet.image +" height=500></a>";
+document.getElementById("person").innerHTML = "<h3> FirstName: " + person.firstname 
++ ", <br> LastName: " + person.lastName + ", <br> ID: " + person.id + ", <br> FullName: " + person.fullName();  
+
+</script>
+
+</body>
+</html>

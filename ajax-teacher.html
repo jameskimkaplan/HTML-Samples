@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Weather app.</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="panel panel-primary">
+
+            <h3 class="panel-title">Weather Data from API</h3>
+            <div class="panel-body">
+                <h2>Weather</h2>
+                <button class="btn btn-danger" type="button" onclick="loadDoc('fort%20lee')">Fort Lee</button>
+                <button class="btn btn-warning" type="button" onclick="loadDoc('rome')">Rome</button>
+                <button class="btn btn-success" type="button" onclick="loadDoc('los%20angeles')">Los Angeles</button>
+                <button class="btn btn-info" type="button" onclick="loadDoc('paris')">Paris</button>
+                <button class="btn btn-primary" type="button" onclick="loadDoc('seoul')">Seoul</button>
+            </div>
+            <div id="demo" class="panel-footer">Panel Footer</div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="panel panel-primary">
+
+            <h3 class="panel-title">Stock Data from API</h3>
+            <div class="panel-body">
+                <h2>Stock</h2>
+                <button class="btn btn-danger" type="button" onclick="loadStock('amzn')">Amazon</button>
+                <button class="btn btn-warning" type="button" onclick="loadStock('googl')">Google</button>
+                <button class="btn btn-success" type="button" onclick="loadStock('twtr')">Twitter</button>
+                <button class="btn btn-info" type="button" onclick="loadStock('fb')">Facebook</button>
+                <button class="btn btn-primary" type="button" onclick="loadStock('aapl')">Apple</button>
+            </div>
+            <div id="stock" class="panel-footer">Panel Footer</div>
+        </div>
+    </div>
+
+
+    <script>
+        var weather_icon = {
+            sunny: 'https://cdn3.iconfinder.com/data/icons/weather-and-weather-forecast/32/sunny-512.png',
+            mist: 'https://cdn4.iconfinder.com/data/icons/heavy-weather/100/Weather_Icons_09_fog-512.png',
+            cloudy: 'https://cdn4.iconfinder.com/data/icons/education-line-vol-4/52/weather__cloudy__cloud__forecast__Clouds__sky__bluesky-512.png',
+            windy: 'https://cdn4.iconfinder.com/data/icons/weather-icons-20/432/weather-icons_cloudy-gusts-512.png',
+            snow: 'https://cdn4.iconfinder.com/data/icons/weathercons/64/snow-512.png',
+            rain: 'https://cdn3.iconfinder.com/data/icons/chubby-weather/403/rain_less-512.png'
+        }
+        var country_flag = {
+            US: 'https://img.freepik.com/free-vector/american-flag-background_23-2147815553.jpg?size=338&ext=jpg',
+            KR: 'https://cdn.countryflags.com/thumbs/south-korea/flag-400.png',
+            JP: 'https://cdn.countryflags.com/thumbs/japan/flag-round-250.png',
+            IT: 'https://vignette.wikia.nocookie.net/althistory/images/b/b4/Roman_empire_flag.jpg/revision/latest?cb=20130430223235',
+            FR: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Flag_of_Paris_with_coat_of_arms.svg/2000px-Flag_of_Paris_with_coat_of_arms.svg.png'
+        }
+        var stock_logo = {
+            facebook: 'https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2015/07/sdffdsafsdf-1200x604.png',
+            apple: 'https://i.pinimg.com/originals/84/b7/21/84b72192add0a20c49b544f453994bd2.png',
+            alibaba: 'http://www.magneticstate.com/blogdept/wp-content/uploads/2014/09/alibaba-logo-300x131.png',
+            google: 'https://cdn.vox-cdn.com/thumbor/Pkmq1nm3skO0-j693JTMd7RL0Zk=/0x0:2012x1341/1200x800/filters:focal(0x0:2012x1341)/cdn.vox-cdn.com/uploads/chorus_image/image/47070706/google2.0.0.jpg',
+            amazon: 'https://amp.businessinsider.com/images/539f3ffbecad044276726c01-750-273.jpg',
+            twitter: 'https://laughingsquid.com/wp-content/uploads/twitter-bird.png'
+        }
+        function loadDoc(city) {
+            var xhttp = new XMLHttpRequest();
+            var myObj;
+            var city = city;
+            var apiUrl = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=bec6ba9742b36bfd08753e637d2a47fc";
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //document.getElementById("demo").innerHTML =
+                    var temp_text = this.responseText;
+                    myObj = JSON.parse(temp_text);
+                    var cityName = myObj.name;
+                    var temp_kel = myObj.main.temp;
+                    var temp_cel = parseInt(temp_kel) - 273;
+                    var temp_fah = (temp_cel * 1.8) + 32;
+                    var weatherDesc = myObj.weather[0].description;
+                    var weatherCast_path;
+                    if (weatherDesc == "clear sky") {
+                        weatherCast_path == weather_icon.sunny
+                    } else if (weatherDesc == "") {
+                        weatherCast_path == weather_icon.sunny
+                    }
+
+                    var country = myObj.sys.country;
+                    var img_path;
+                    if (country == "US") {
+                        img_path = country_flag.US;
+                    } else if (country == "KR") {
+                        img_path = country_flag.KR;
+                    } else if (country == "IT") {
+                        img_path = country_flag.IT;
+                    }
+                    else if (country == "FR") {
+                        img_path = country_flag.FR;
+                    }
+
+                    document.getElementById("demo").innerHTML = "<div class='section'>Country: "
+                        + country + "<img src='" + img_path + "'  width=200>"
+                        + "</div><div class='section'>City: " + cityName + "</div>"
+                        + "<div class='section'> Temerature: " + temp_cel + "&#8451;  (Fahrenheit: "
+                        + temp_fah + "&#8457;) </div> Weather cast: " + weatherDesc
+                        + "<img src='http://www.transparentpng.com/thumb/weather-report/android-weather-icons-png-12.png' class='img-circle' width='200'></div>";
+                }
+            };
+            //xhttp.open("GET", "ajax_info.json", true);
+            xhttp.open("GET", apiUrl, true);
+            //xhttp.open("GET", "https://maps.googleapis.com/maps/api/geocode/json?address=181%20concord%20drive%20paramus", true);
+            xhttp.send();
+        }
+        function loadStock(stock) {
+            var xhttp = new XMLHttpRequest();
+            var myObj;
+            var stock = stock;
+            var apiUrl = "https://api.iextrading.com/1.0/stock/" + stock + "/batch?types=quote,news,chart&range=1m&last=10";
+            var stock_logo_img;
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    //document.getElementById("demo").innerHTML =
+                    var temp_text = this.responseText;
+                    myObj = JSON.parse(temp_text);
+                    var symbol = myObj.quote.symbol;
+                    if (symbol == "AAPL") {
+                        stock_logo_img = stock_logo.apple;
+                    } else if (symbol == "GOOGL") {
+                        stock_logo_img = stock_logo.google;
+                    } else if (symbol == "AMZN") {
+                        stock_logo_img = stock_logo.amazon;
+                    } else if (symbol == "FB") {
+                        stock_logo_img = stock_logo.facebook;
+                    } else if (symbol == "TWTR") {
+                        stock_logo_img = stock_logo.twitter;
+                    }
+                    var latestPrice = myObj.quote.latestPrice;
+                    var companyName = myObj.quote.companyName;
+                    document.getElementById("stock").innerHTML = "<div class='section'>Company: "
+                        + companyName + "<img src='" + stock_logo_img + "'  width=200>"
+                        + "</div><div class='section'>Latest Price: " + latestPrice + "</div>";
+
+                }
+            };
+            //xhttp.open("GET", "ajax_info.json", true);
+            xhttp.open("GET", apiUrl, true);
+            //xhttp.open("GET", "https://maps.googleapis.com/maps/api/geocode/json?address=181%20concord%20drive%20paramus", true);
+            xhttp.send();
+        }
+    </script>
+
+</body>
+
+</html>

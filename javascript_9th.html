@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <h2>What Can JavaScript Do?</h2>
+
+    <button onclick="document.getElementById('myImage').src='https://www.w3schools.com/js/pic_bulbon.gif'">Turn on the
+        light</button>
+
+    <img id="myImage" src="https://www.w3schools.com/js/pic_bulboff.gif" style="width:200px">
+
+    <button onclick="document.getElementById('myImage').src='https://www.w3schools.com/js/pic_bulboff.gif'">Turn off
+        the light</button>
+
+    <div>
+        <button onclick="document.getElementById('myCity').src='https://cdn.londonandpartners.com/-/media/images/london/visit/london-organisations/tower-bridge-exhibition/tower-bridge-homepage-image.jpg?mw=1920&hash=E19E0136A57855A8ED61B4E66EA72F1646CA8DAC'">Show
+            me
+            London </button>
+        <img id="myCity" src="https://www.telegraph.co.uk/content/dam/Travel/hotels/europe/france/paris/eiffel-tower-paris-p.jpg?imwidth=480"
+            style="width:200px">
+        <button onclick="document.getElementById('myCity').src='https://lonelyplanetimages.imgix.net/mastheads/GettyImages-538096543_medium.jpg?sharp=10&vib=20&w=1200'">Show
+            me
+            New York
+        </button>
+    </div>
+
+
+    <p id="city">JavaScript can change HTML content.</p>
+    <p id="game">JavaScript can change HTML content.</p>
+    <p id="grade">JavaScript can change HTML content.</p>
+    <p id="school">JavaScript can change HTML content.</p>
+
+    <button type="button" onclick="document.getElementById('city').innerHTML = 'I want to go to Paris!'">My favorite
+        City!</button>
+    <button type="button" onclick="document.getElementById('sum').innerHTML = sum">10 + 20 = ?
+    </button>
+
+
+    <h2>JavaScript Statements</h2>
+
+    <p>JavaScript statements are separated by semicolons.</p>
+
+    <p id="sum"> result of sum</p>
+    <p id="subtract">result of subtract</p>
+    <p id="multi">result of multiplication</p>
+    <p id="division">result of division</p>
+
+    <button type="button" onclick="document.getElementById('sum').innerHTML = mySum(10, 50);">call sum function
+    </button>
+    <button type="button" onclick="document.getElementById('subtract').innerHTML = mySubtract(40, 20);">call MySubtract
+        function
+    </button>
+    <button type="button" onclick="document.getElementById('multi').innerHTML = myMulti(40, 20);">call myMulti function
+    </button>
+    <button type="button" onclick="document.getElementById('division').innerHTML = myDivision(40, 20);">call myDivision
+        function
+    </button>
+    <script>
+        var a, b, sum, subtract, multi, div;
+        function mySum(p1, p2) {
+            return p1 + p2;
+        }
+        function mySubtract(p1, p2) {
+            return p1 - p2;
+        }
+        function myMulti(p1, p2) {
+            return p1 * p2;
+        }
+        function myDivision(p1, p2) {
+            return p1 / p2;
+        }
+        //document.getElementById("demo").innerHTML = myFunction(4, 3);
+        a = 10;
+        b = "Hello world!!!";
+        sum = a + b; //assign the result of sum
+        subtract = a - b;  //assign the result of subtract
+        div = a / b;
+        multi = a * b;
+        //document.getElementById("sum").innerHTML = sum;
+    </script>
+</body>
+
+</html>

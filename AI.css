@@ -1,0 +1,89 @@
+body
+{
+	background-color:#3399ff;
+	margin:0px;
+	padding:0px;
+}
+
+.scene
+{
+	float:left;
+	background-color:#000;
+	width:100%;
+	height:500px;
+}
+.grass
+{
+	float:left;
+	background-color: green;
+	width:100%;
+	height:100px;
+}
+.road
+{
+	float:left;
+    /* background-color: #fff; */
+    background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmj8VhyCRKF0qR1gKHCOyLTeZOOMkZMCo99okXY6j8cf_XPoSv); 
+    background-size: 300px 100%;
+    width:100%;
+	height:300px;
+}
+.ai
+{
+	position:absolute;
+	width:100px;
+	height:50px;
+	background-image: url(./images/car.png);
+    /*background-image: url(https://thumbs.dreamstime.com/b/red-sports-car-top-view-white-background-38467300.jpg); */
+    background-size: 100px 50px;
+    /* background-color:#fff; */
+	margin-top:50px;
+}
+.wall
+{
+	position:absolute;
+	width:50px;
+	height:100px;
+	background-color:#B32D00;
+	right:0px;
+}
+.sensor_1, .sensor_2, .sensor_3
+{
+	position:relative;
+	background-color:#fff;
+	opacity:0.5;
+	width:50px;
+	height:50px;
+	text-align:center;
+}
+
+.sensor_1
+{
+	top:-50px;
+	left:50px;
+}
+.sensor_2
+{
+	top:-50px;
+	left:100px;
+	width: 500px;
+}
+.sensor_3
+{
+	top:-50px;
+	left:50px;
+}
+
+.debugArea
+{
+    width:100%;
+    background-color:#000;
+    float:left;
+    height:100%;
+}
+
+.debugTextareaClass
+{
+    width:400px;
+    height:150px;
+}
